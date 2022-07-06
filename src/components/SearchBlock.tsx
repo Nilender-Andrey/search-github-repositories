@@ -1,19 +1,17 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components/macro';
-import { SearchResultType } from '../type';
 import { ButtonStyle, InputStyle } from './components';
 
 interface SearchBlockProps {
-  setSearchResults: React.Dispatch<React.SetStateAction<SearchResultType[]>>;
+  addSearchData: (request: string) => void;
 }
 
-const SearchBlock: FC<SearchBlockProps> = () => {
+const SearchBlock: FC<SearchBlockProps> = ({ addSearchData }) => {
   const [search, setSearch] = useState('');
 
-  const submitHandler = (event: React.SyntheticEvent) => {
+  const submitHandler = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-
-    console.log();
+    if (search) addSearchData(search);
   };
 
   const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +41,6 @@ const FormSearchStyle = styled.form`
   gap: 10px;
 
   height: 100px;
-
   padding: 20px 40px;
   margin-bottom: 20px;
 
