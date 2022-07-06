@@ -46,6 +46,7 @@ type TextProps = {
   p?: string;
   fw?: string;
   v?: string;
+  lh?: string;
 };
 
 export const Text = styled.p<TextProps>`
@@ -56,6 +57,7 @@ export const Text = styled.p<TextProps>`
   margin: ${(props) => props.m};
   padding: ${(props) => props.p};
   visibility: ${(props) => props.v};
+  line-height: ${(props) => props.lh}; ;
 `;
 
 type FlexProps = {

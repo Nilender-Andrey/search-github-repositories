@@ -4,6 +4,7 @@ export type SearchResultType = {
   html_url: string;
   visibility: string;
   forks: number;
+  created_at: string;
 };
 
 export type ResponseDataType = {

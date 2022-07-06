@@ -11,7 +11,7 @@ const SearchBlock: FC<SearchBlockProps> = ({ addSearchData }) => {
 
   const submitHandler = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    if (search) addSearchData(search);
+    addSearchData(search);
   };
 
   const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,9 +49,12 @@ const FormSearchStyle = styled.form`
 
   @media (max-width: 640px) {
     flex-direction: column;
+    padding: 20px 10px;
   }
 `;
 
 const InputSearchStyle = styled(InputStyle)`
-  flex: 1 1 auto;
+  flex: 1;
+  width: 100%;
+  min-width: 260px;
 `;

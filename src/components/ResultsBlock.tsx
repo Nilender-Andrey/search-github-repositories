@@ -10,17 +10,15 @@ interface ResultsBlockProps {
 }
 
 const ResultsBlock: FC<ResultsBlockProps> = ({ searchData, error }) => {
-  console.log(searchData, error);
-
   const message = !searchData && (
-    <Text ta='center' fw='700'>
+    <Text ta='center' fw='700' lh='1.5'>
       Здесь будут результаты поиска
     </Text>
   );
 
   const messageNotFound = searchData && !searchData.total_count && (
-    <Text ta='center' fw='700'>
-      По вашему запросу ни чего не найдено
+    <Text ta='center' fw='700' lh='1.5'>
+      По вашему запросу ничего не найдено
     </Text>
   );
 
@@ -32,12 +30,12 @@ const ResultsBlock: FC<ResultsBlockProps> = ({ searchData, error }) => {
   );
 
   const errorMessage = error && (
-    <Text ta='center' fw='700'>
+    <Text ta='center' fw='700' lh='1.5'>
       {error}
     </Text>
   );
 
-  const result = messageNotFound || errorMessage || message || resultsList;
+  const result = errorMessage || messageNotFound || message || resultsList;
 
   return <ResultsBlockStyle>{result}</ResultsBlockStyle>;
 };
